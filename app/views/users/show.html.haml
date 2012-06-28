@@ -3,4 +3,7 @@
 %p
   User: #{@user.name}
 %p
+  Image: 
+  = link_to image_tag( "#{@user.image_url}" ), 'http://www.google.com' 
+%p
   Email: #{@user.email if @user.email}
