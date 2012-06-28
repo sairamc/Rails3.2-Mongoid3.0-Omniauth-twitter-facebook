@@ -43,7 +43,7 @@ production:
         - mongos.myapp.com:27017
       database: mongoid
     another:
-      uri: mongodb://chilzapdj:chilzapdj@ds033307.mongolab.com:33307/heroku_app5590738
+      uri: <%= ENV['MONGOLAB_URI'] %>
   options:
     allow_dynamic_fields: true
     identity_map_enabled: true
