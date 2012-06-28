@@ -1,8 +1,8 @@
-Rails3MongoidDeviseOmniauth::Application.routes.draw do
-  match '/auth/:provider/callback' => 'authentications#create'
-  match '/registrations' => 'registrations#email'
+Rails3MongoidOmniauth::Application.routes.draw do
   root :to => "home#index"
-  devise_for :users
-  resources :users, :only => :show
-  resources :authentications
+  resources :users, :only => [ :show, :edit, :update ]
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signin' => 'sessions#new', :as => :signin
+  match '/signout' => 'sessions#destroy', :as => :signout
+  match '/auth/failure' => 'sessions#failure'
 end
