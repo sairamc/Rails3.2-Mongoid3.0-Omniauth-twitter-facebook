@@ -16,8 +16,8 @@ gem "email_spec", ">= 1.2.1", :group => :test
 gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
 gem "capybara", ">= 1.1.2", :group => :test
 gem "launchy", ">= 2.1.0", :group => :test
-gem "bson_ext", ">= 1.6.4"
-gem "mongoid", ">= 2.4.11"
+gem "bson_ext"
+gem "mongoid", "~> 3.0.0.rc"
 gem "omniauth", ">= 1.1.0"
 gem "omniauth-twitter"
 gem 'omniauth-facebook'
