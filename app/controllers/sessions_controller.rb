@@ -1,9 +1,12 @@
 class SessionsController < ApplicationController
 
-  def new
+  def twitter_signin
     redirect_to '/auth/twitter'
   end
 
+  def facebook_signin
+    redirect_to '/auth/facebook'
+  end
 
   def create
     auth = request.env["omniauth.auth"]
