@@ -22,13 +22,39 @@ test:
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
-  # slaves:
-  #   - host: slave1.local
-  #     port: 27018
-  #   - host: slave2.local
-  #     port: 27019
+  sessions:
+    default:
+      hosts:
+        - <%= ENV['MONGOID_HOST'] %>:<%= ENV['MONGOID_PORT'] %>
+      database: <%= ENV['MONGOID_DATABASE'] %>
+      username: <%= ENV['MONGOID_USERNAME'] %>
+      password: <%= ENV['MONGOID_PASSWORD'] %>
+    replica_set:
+      hosts:
+        - dedicated1.myapp.com:27017
+        - dedicated2.myapp.com:27017
+        - dedicated3.myapp.com:27017
+      database: mongoid
+      options:
+        consistency: :eventual
+        safe: true
+    shard:
+      hosts:
+        - mongos.myapp.com:27017
+      database: mongoid
+    another:
+      uri: mongodb://chilzapdj:chilzapdj@ds033307.mongolab.com:33307/heroku_app5590738
+  options:
+    allow_dynamic_fields: true
+    identity_map_enabled: true
+    include_root_in_json: true
+    include_type_for_serialization: true
+    preload_models:
+      - Canvas
+      - Browser
+      - Firefox
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: false
+    use_activesupport_time_zone: false
+    use_utc: true
