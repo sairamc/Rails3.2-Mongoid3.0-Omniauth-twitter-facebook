@@ -6,10 +6,13 @@ class User
   field :email, :type => String
   attr_accessible :provider, :uid, :name, :email
 
+  validates_uniqueness_of :uid, :message => "Something went wrong on our side. Try with a different account!"
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
+      debugger
       if auth['info']
          user.name = auth['info']['name'] || ""
          user.email = auth['info']['email'] || ""
