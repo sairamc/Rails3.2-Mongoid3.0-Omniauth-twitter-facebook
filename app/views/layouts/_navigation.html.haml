@@ -1,0 +1,12 @@
+= link_to "Rails3 Mongoid Omniauth", root_path, :class => 'brand'
+%ul.nav
+  - if user_signed_in?
+    %li
+      Logged in as #{current_user.name}
+    %li
+      = link_to 'Logout', signout_path
+  - else
+    %li
+      = link_to 'Twitter Login', tw_signin_path
+    %li
+      = link_to 'Facebook Login', fb_signin_path

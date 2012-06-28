@@ -4,7 +4,8 @@ class User
   field :uid, :type => String
   field :name, :type => String
   field :email, :type => String
-  attr_accessible :provider, :uid, :name, :email
+  field :image_url, :type => String
+  attr_accessible :provider, :uid, :name, :email, :image_url
 
   validates_uniqueness_of :uid, :message => "Something went wrong on our side. Try with a different account!"
 
@@ -12,10 +13,10 @@ class User
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
-      debugger
       if auth['info']
          user.name = auth['info']['name'] || ""
          user.email = auth['info']['email'] || ""
+         user.image_url = auth['info']['image'] || ""
       end
     end
   end
