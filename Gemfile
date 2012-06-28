@@ -21,7 +21,7 @@ gem "mongoid", "~> 3.0.0.rc"
 gem "omniauth", ">= 1.1.0"
 gem "omniauth-twitter"
 gem 'omniauth-facebook'
-gem 'ruby-debug19'
+gem 'ruby-debug19', :group => [:development, :test]
 
 gem "hominid"
 gem "devise", ">= 2.1.2"

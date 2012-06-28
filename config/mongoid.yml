@@ -29,19 +29,19 @@ production:
       database: <%= ENV['MONGOID_DATABASE'] %>
       username: <%= ENV['MONGOID_USERNAME'] %>
       password: <%= ENV['MONGOID_PASSWORD'] %>
-    replica_set:
-      hosts:
-        - dedicated1.myapp.com:27017
-        - dedicated2.myapp.com:27017
-        - dedicated3.myapp.com:27017
-      database: mongoid
-      options:
-        consistency: :eventual
-        safe: true
-    shard:
-      hosts:
-        - mongos.myapp.com:27017
-      database: mongoid
+    # replica_set:
+    #   hosts:
+    #     - dedicated1.myapp.com:27017
+    #     - dedicated2.myapp.com:27017
+    #     - dedicated3.myapp.com:27017
+    #   database: mongoid
+    #   options:
+    #     consistency: :eventual
+    #     safe: true
+    # shard:
+    #   hosts:
+    #     - mongos.myapp.com:27017
+    #   database: mongoid
     another:
       uri: <%= ENV['MONGOLAB_URI'] %>
   options:
